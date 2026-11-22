@@ -16,14 +16,20 @@ export const SITE = {
   /** サイトの説明文 */
   DESCRIPTION:
     "逗子市議会で今どんな議案が検討されているか、わかりやすく伝えるプラットフォーム",
-  /** 運営者名（TODO: 実際の運営者名・団体名に置き換えてください） */
-  OPERATOR_NAME: "みらい議会＠逗子市 運営事務局",
-  /** お問い合わせ先（TODO: 運営者の連絡先メールアドレスに置き換えてください） */
-  CONTACT_EMAIL: "contact@example.com",
+  /** 運営者名 */
+  OPERATOR_NAME: "お茶の間みらい会議のさく",
   /** コピーライト表記 */
   COPYRIGHT: "© 2026 みらい議会＠逗子市",
   /** Fork ガイドラインで表示が義務付けられている免責文言 */
   DISCLAIMER: "これは政党チームみらいが運営しているものではありません",
   /** テーマカラー（globals.css の --primary と合わせる） */
   THEME_COLOR: "#1f78b4",
+  /** 機能の ON/OFF */
+  FEATURES: {
+    /** AI チャット（AI Gateway の API キーが必要）。現在は使わない */
+    AI_CHAT: false,
+  },
 } as const;
+
+/** お問い合わせフォームのページ内アンカー */
+export const CONTACT_ANCHOR = "contact";

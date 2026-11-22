@@ -13,6 +13,7 @@ const navigationLinks = [
   { href: routes.interviews(), label: "インタビュー" },
   // 全議案トピック分析(/user-topic-analysis)は隠し機能のためヘッダーに出さない（URL直アクセスのみ）。
   { href: routes.experts(), label: "有識者" },
+  { href: routes.contactMessages(), label: "お問い合わせ" },
   { href: routes.admins(), label: "管理者" },
 ];
 

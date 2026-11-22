@@ -15,6 +15,7 @@ export const routes = {
   tags: () => "/tags" as const,
   dietSessions: () => "/diet-sessions" as const,
   experts: () => "/experts" as const,
+  contactMessages: () => "/contact-messages" as const,
   interviews: () => "/interviews" as const,
   interviewOpinionBackfill: () => "/interview-opinion-backfill" as const,
   userTopicAnalysisAll: () => "/user-topic-analysis" as const,

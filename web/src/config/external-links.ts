@@ -2,14 +2,15 @@
  * 外部リンク定数
  *
  * TODO（運営者が決めること）:
- * - REPORT: 不具合・誤り報告フォームの URL（Google フォーム等）
- * - ABOUT / FAQ: 運営者の紹介ページ・FAQ の URL（未作成ならサイト内の about へ）
+ * - FAQ: FAQ ページを作ったら URL を差し替える
  * - GITHUB_REPO: Fork 先リポジトリの URL（AGPL-3.0 によりソースコード公開先の表示が必須）
  */
 export const EXTERNAL_LINKS = {
-  REPORT: "https://github.com/sakusakucoding/zushi-mirai-gikai/issues",
+  /** 誤り・不具合の報告先（サイト下部のお問い合わせフォーム） */
+  REPORT: "/#contact",
   /** 逗子市議会の公式ページ */
-  COUNCIL_OFFICIAL: "https://www.city.zushi.kanagawa.jp/",
+  COUNCIL_OFFICIAL:
+    "https://www.city.zushi.kanagawa.jp/shisei/gikai/index.html",
   FAQ: "https://github.com/sakusakucoding/zushi-mirai-gikai#readme",
   /** Fork 元（本家）サービス */
   ORIGINAL_SERVICE: "https://gikai.team-mir.ai/",

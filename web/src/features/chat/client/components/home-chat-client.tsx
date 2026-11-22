@@ -1,5 +1,6 @@
 "use client";
 
+import { SITE } from "@/config/site";
 import type { DifficultyLevelEnum } from "@/features/bill-difficulty/shared/types";
 import { ChatButton } from "./chat-button";
 
@@ -20,6 +21,8 @@ export function HomeChatClient({
   currentDifficulty,
   bills,
 }: HomeChatClientProps) {
+  if (!SITE.FEATURES.AI_CHAT) return null;
+
   return (
     <ChatButton
       difficultyLevel={currentDifficulty}

@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useRef } from "react";
+import { SITE } from "@/config/site";
 import type { DifficultyLevelEnum } from "@/features/bill-difficulty/shared/types";
 import { TextSelectionWrapper } from "@/features/bills/client/components/text-selection-tooltip/text-selection-wrapper";
 import {
@@ -36,6 +37,9 @@ export function BillDetailClient({
   const handleOpenChat = (selectedText: string) => {
     chatButtonRef.current?.openWithText(selectedText);
   };
+
+  // AI チャットを使わない設定では、テキスト選択からの質問もチャットボタンも出さない
+  if (!SITE.FEATURES.AI_CHAT) return <>{children}</>;
 
   return (
     <>

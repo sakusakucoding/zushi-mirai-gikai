@@ -1,10 +1,11 @@
 import { simulateReadableStream, type UIMessage } from "ai";
-import { getChatSupabaseUser } from "@/features/chat/server/utils/supabase-server";
+import { SITE } from "@/config/site";
 import {
   type ChatMessageMetadata,
   handleChatRequest,
 } from "@/features/chat/server/services/handle-chat-request";
 import { chatErrorToResponse } from "@/features/chat/server/utils/chat-error-response";
+import { getChatSupabaseUser } from "@/features/chat/server/utils/supabase-server";
 import { jsonResponse } from "@/lib/api/response";
 import { registerNodeTelemetry } from "@/lib/telemetry/register";
 
@@ -49,6 +50,9 @@ async function _mockResponse(_req: Request) {
 }
 
 export async function POST(req: Request) {
+  if (!SITE.FEATURES.AI_CHAT) {
+    return jsonResponse({ error: "AI chat is disabled" }, 404);
+  }
   // Vercel node環境でinstrumentationが自動で起動しない問題対応
   // 明示的にtelemetryを初期化
   await registerNodeTelemetry();

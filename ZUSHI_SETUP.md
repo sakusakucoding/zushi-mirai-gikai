@@ -8,9 +8,12 @@
 
 | 項目 | 現在の値（仮） | やること |
 |---|---|---|
-| `OPERATOR_NAME` | みらい議会＠逗子市 運営事務局 | 実際の運営者名・団体名に変更 |
-| `CONTACT_EMAIL` | contact@example.com | 問い合わせ先メールアドレスに変更 |
+| `OPERATOR_NAME` | お茶の間みらい会議のさく | 設定済み |
 | `COPYRIGHT` | © 2026 みらい議会＠逗子市 | 必要なら変更 |
+| `FEATURES.AI_CHAT` | false | AI チャットを使うときに true（AI Gateway の API キーが必要） |
+
+問い合わせはメールではなく、全ページ下部のお問い合わせフォームで受け付けます。
+送信内容は Supabase の `gikai_contact_messages` テーブルに保存され、管理画面の「お問い合わせ」で確認・対応状況の変更ができます。
 
 ## 2. リンク先（必須）
 
@@ -19,13 +22,13 @@
 | 項目 | 現在の値（仮） | やること |
 |---|---|---|
 | `GITHUB_REPO` | https://github.com/sakusakucoding/zushi-mirai-gikai | fork 先のリポジトリ名が違う場合は変更（AGPL-3.0 で表示が必須） |
-| `COUNCIL_OFFICIAL` | https://www.city.zushi.kanagawa.jp/ | 逗子市議会のページの正確な URL に変更 |
-| `REPORT` | GitHub Issues | 不具合・誤り報告フォーム（Google フォーム等）があれば変更 |
+| `COUNCIL_OFFICIAL` | https://www.city.zushi.kanagawa.jp/shisei/gikai/index.html | 設定済み |
+| `REPORT` | サイト下部のお問い合わせフォーム | 設定済み |
 | `FAQ` | README | FAQ ページがあれば変更 |
 
 ## 3. 利用規約・プライバシーポリシー（必須・法的確認）
 
-本家（政党チームみらい）の文面をもとに、運営者名・問い合わせ先・管轄裁判所（横浜地方裁判所）だけを差し替えています。
+本家（政党チームみらい）の文面をもとに、運営者名・問い合わせ先（フォーム）・管轄裁判所（横浜地方裁判所）だけを差し替えています。
 運営主体に合わせて、内容全体を確認・修正してください。
 
 - `web/src/app/(main)/terms/page.tsx`

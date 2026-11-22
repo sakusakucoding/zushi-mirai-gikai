@@ -519,6 +519,45 @@ export type Database = {
         }
         Relationships: []
       }
+      gikai_contact_messages: {
+        Row: {
+          category: string
+          created_at: string
+          id: string
+          ip_hash: string | null
+          message: string
+          name: string | null
+          page_path: string | null
+          reply_to: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          id?: string
+          ip_hash?: string | null
+          message: string
+          name?: string | null
+          page_path?: string | null
+          reply_to?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          id?: string
+          ip_hash?: string | null
+          message?: string
+          name?: string | null
+          page_path?: string | null
+          reply_to?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       interview_configs: {
         Row: {
           bill_id: string
@@ -1318,10 +1357,6 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      apply_admin_role_if_eligible: {
-        Args: { target_user_id: string }
-        Returns: boolean
-      }
       bulk_publish_reports: {
         Args: {
           p_config_id: string

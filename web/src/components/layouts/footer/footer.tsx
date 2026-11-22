@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { EXTERNAL_LINKS } from "@/config/external-links";
 import { SITE } from "@/config/site";
+import { ContactForm } from "@/features/contact/client/components/contact-form";
 import { isInterviewPage } from "@/lib/page-layout-utils";
 import { routes } from "@/lib/routes";
 import { policyLinks, primaryLinks } from "./footer.config";
@@ -20,6 +21,7 @@ export function Footer() {
   return (
     <footer className="bg-mirai-gradient text-slate-900">
       <div className="mx-auto flex w-full max-w-[500px] flex-col items-center px-6 py-14 pb-20 text-center">
+        <ContactForm />
         <FooterLogoSection />
         <FooterPrimaryLinks />
         <FooterPolicies />

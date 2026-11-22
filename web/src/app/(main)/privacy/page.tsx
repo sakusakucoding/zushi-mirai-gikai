@@ -155,7 +155,13 @@ export default function PrivacyPage() {
           <LegalParagraph>
             個人情報の確認・修正・削除、またはみらい議会AIインタビュー機能の回答公開の停止等のご相談は、下記までご連絡ください。
           </LegalParagraph>
-          <LegalParagraph>{SITE.CONTACT_EMAIL}</LegalParagraph>
+          <LegalParagraph>
+            本サイト下部の
+            <Link href="/#contact" className="underline">
+              お問い合わせフォーム
+            </Link>
+            からご連絡ください。
+          </LegalParagraph>
         </section>
       </Container>
     </LegalPageLayout>

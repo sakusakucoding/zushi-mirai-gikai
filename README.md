@@ -19,6 +19,9 @@
   - 「国会会期（diet_sessions）」は「会期（定例会・臨時会）」として使用（URL は `/kokkai/...` のまま）
 - AI チャットのシステムプロンプトを逗子市議会向けに変更
 - 「チームみらいの賛否」を「運営者の賛否」に変更
+- 本家の「team-mir.ai ドメインの Google ユーザーを自動で管理者にする」仕組みを無効化
+- 全ページ下部にお問い合わせフォームを追加（Supabase の `gikai_contact_messages` に保存、管理画面で確認）
+- AI チャットを無効化（`web/src/config/site.ts` の `FEATURES.AI_CHAT`）
 - 運営者が決めるべき項目の一覧は [ZUSHI_SETUP.md](./ZUSHI_SETUP.md) を参照
 
 ---
