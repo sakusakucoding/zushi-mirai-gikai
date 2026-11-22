@@ -41,9 +41,9 @@ import { ThumbnailUpload } from "./thumbnail-upload";
 const BILL_STATUS_OPTIONS: Array<{ value: BillStatus; label: string }> = [
   { value: "preparing", label: "準備中" },
   { value: "introduced", label: "提出済み" },
-  { value: "in_originating_house", label: "審議中（提出院）" },
-  { value: "in_receiving_house", label: "審議中（送付院）" },
-  { value: "enacted", label: "成立" },
+  { value: "in_originating_house", label: "委員会審査中" },
+  { value: "in_receiving_house", label: "本会議審議中" },
+  { value: "enacted", label: "可決" },
   { value: "rejected", label: "否決" },
 ];
 
@@ -161,7 +161,7 @@ export function BillFormFields({
                 </SelectContent>
               </Select>
               <FormDescription>
-                議案を提出した議院を選択してください
+                逗子市議会は一院制のため「逗子市議会」を選択してください
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -173,7 +173,7 @@ export function BillFormFields({
           name="proposal_type"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>法案の種類</FormLabel>
+              <FormLabel>議案の種類（提出者）</FormLabel>
               <Select
                 onValueChange={(value) =>
                   field.onChange(
@@ -200,7 +200,7 @@ export function BillFormFields({
                 </SelectContent>
               </Select>
               <FormDescription>
-                内閣が提出した閣法か、議員が提出した議員立法かを選択してください。未設定の場合は公開サイトや速報画像に表示しません
+                市長が提出した議案か、議員が提出した議案かを選択してください。未設定の場合は公開サイトや速報画像に表示しません
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -234,11 +234,11 @@ export function BillFormFields({
         name="submitted_date"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>法案提出日 *</FormLabel>
+            <FormLabel>議案提出日 *</FormLabel>
             <FormControl>
               <Input type="date" {...field} />
             </FormControl>
-            <FormDescription>法案の提出日を設定してください</FormDescription>
+            <FormDescription>議案の提出日を設定してください</FormDescription>
             <FormMessage />
           </FormItem>
         )}
@@ -299,7 +299,7 @@ export function BillFormFields({
         name="shugiin_url"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>衆議院URL</FormLabel>
+            <FormLabel>市議会の議案ページURL</FormLabel>
             <FormControl>
               <Input
                 {...field}
@@ -308,7 +308,7 @@ export function BillFormFields({
               />
             </FormControl>
             <FormDescription>
-              衆議院の議案ページURLを入力してください（「これから掲載される法案」表示時に外部リンクとして使用）
+              逗子市議会の議案ページURLを入力してください（「これから掲載される議案」表示時に外部リンクとして使用）
             </FormDescription>
             <FormMessage />
           </FormItem>
@@ -325,7 +325,7 @@ export function BillFormFields({
               <Input
                 {...field}
                 value={field.value || ""}
-                placeholder="221-kaku-1-mof-法案名"
+                placeholder="2026-4teirei-gian-1"
               />
             </FormControl>
             <FormDescription>
@@ -341,14 +341,14 @@ export function BillFormFields({
         name="diet_session_id"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>国会会期</FormLabel>
+            <FormLabel>会期（定例会・臨時会）</FormLabel>
             <Select
               onValueChange={field.onChange}
               value={field.value ?? undefined}
             >
               <FormControl>
                 <SelectTrigger>
-                  <SelectValue placeholder="国会会期を選択" />
+                  <SelectValue placeholder="会期を選択" />
                 </SelectTrigger>
               </FormControl>
               <SelectContent>
@@ -360,7 +360,7 @@ export function BillFormFields({
               </SelectContent>
             </Select>
             <FormDescription>
-              議案が提出された国会会期を選択してください
+              議案が提出された会期（定例会・臨時会）を選択してください
             </FormDescription>
             <FormMessage />
           </FormItem>
@@ -447,7 +447,7 @@ export function BillFormFields({
               <Textarea
                 {...field}
                 value={field.value ?? ""}
-                placeholder="議案の補足情報やチームみらいの仮説などを入力"
+                placeholder="議案の補足情報や運営者の仮説などを入力"
                 className="min-h-[200px] resize-y"
               />
             </FormControl>

@@ -21,7 +21,7 @@ export function PastSessionList({ sessions }: PastSessionListProps) {
           過去の会期一覧
         </h3>
         <p className="text-xs font-medium text-mirai-text">
-          会期ごとの提出法案をまとめて見られます
+          会期ごとの提出議案をまとめて見られます
         </p>
       </div>
 

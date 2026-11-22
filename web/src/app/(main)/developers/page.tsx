@@ -13,9 +13,9 @@ import { EXTERNAL_LINKS } from "@/config/external-links";
 import { routes } from "@/lib/routes";
 
 export const metadata: Metadata = {
-  title: "開発者向け | みらい議会",
+  title: "開発者向け | みらい議会＠逗子市",
   description:
-    "みらい議会のオープンデータAPIなど、開発者・研究者向けの情報をまとめています。",
+    "みらい議会＠逗子市のオープンデータAPIなど、開発者・研究者向けの情報をまとめています。",
 };
 
 const links = [
@@ -38,16 +38,15 @@ const links = [
     href: EXTERNAL_LINKS.GITHUB_REPO,
     icon: Github,
     title: "GitHubリポジトリ",
-    description:
-      "みらい議会のソースコード。フォークして自由にご活用いただけます。",
+    description: "みらい議会＠逗子市のソースコード（AGPL-3.0）。",
     external: true,
   },
   {
-    href: EXTERNAL_LINKS.FORK_GUIDELINES_NOTE,
+    href: EXTERNAL_LINKS.ORIGINAL_REPO,
     icon: BookOpen,
-    title: "自主制作ガイドライン",
+    title: "Fork 元：みらい議会（team-mirai/mirai-gikai）",
     description:
-      "フォーク・改変に関するガイドライン。ソースコードをご活用される際や、改変される際にご参照ください。",
+      "本サービスの元になったオープンソースプロジェクト。AGPL-3.0 で公開されています。",
     external: true,
   },
 ];
@@ -102,7 +101,7 @@ export default function DevelopersPage() {
           </header>
 
           <p className="text-[15px] leading-loose tracking-wide text-mirai-text-subtle">
-            みらい議会では、AIインタビューに寄せられた法案への意見を、誰でも分析・活用できるオープンデータとして公開しています。
+            みらい議会＠逗子市では、AIインタビューに寄せられた議案への意見を、誰でも分析・活用できるオープンデータとして公開しています。
           </p>
 
           <div className="flex flex-col border-t border-neutral-200">

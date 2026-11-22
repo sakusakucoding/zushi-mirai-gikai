@@ -11,56 +11,31 @@ describe("getBillStatusLabel", () => {
     expect(getBillStatusLabel("introduced")).toBe("提出済み");
   });
 
-  it("returns '成立' for enacted", () => {
-    expect(getBillStatusLabel("enacted")).toBe("成立");
+  it("returns '可決' for enacted", () => {
+    expect(getBillStatusLabel("enacted")).toBe("可決");
   });
 
   it("returns '否決' for rejected", () => {
     expect(getBillStatusLabel("rejected")).toBe("否決");
   });
 
-  describe("in_originating_house", () => {
-    it("returns '衆議院審議中' when originatingHouse is HR", () => {
-      expect(getBillStatusLabel("in_originating_house", "HR")).toBe(
-        "衆議院審議中"
-      );
-    });
-
-    it("returns '参議院審議中' when originatingHouse is HC", () => {
-      expect(getBillStatusLabel("in_originating_house", "HC")).toBe(
-        "参議院審議中"
-      );
-    });
-
-    it("returns '審議中' when originatingHouse is undefined", () => {
-      expect(getBillStatusLabel("in_originating_house")).toBe("審議中");
-    });
-
-    it("returns '審議中' when originatingHouse is null", () => {
-      expect(getBillStatusLabel("in_originating_house", null)).toBe("審議中");
-    });
+  // 逗子市議会は一院制のため、発議院に関係なく同じラベルになる
+  it.each([
+    ["HR", "委員会審査中"],
+    ["HC", "委員会審査中"],
+    [undefined, "委員会審査中"],
+    [null, "委員会審査中"],
+  ] as const)("in_originating_house (%s) → %s", (house, expected) => {
+    expect(getBillStatusLabel("in_originating_house", house)).toBe(expected);
   });
 
-  describe("in_receiving_house", () => {
-    it("returns '参議院審議中' when originatingHouse is HR", () => {
-      expect(getBillStatusLabel("in_receiving_house", "HR")).toBe(
-        "参議院審議中"
-      );
-    });
-
-    it("returns '衆議院審議中' when originatingHouse is HC", () => {
-      expect(getBillStatusLabel("in_receiving_house", "HC")).toBe(
-        "衆議院審議中"
-      );
-    });
-
-    it("returns '審議中' when originatingHouse is undefined", () => {
-      expect(getBillStatusLabel("in_receiving_house")).toBe("審議中");
-    });
-
-    it("returns '審議中' when originatingHouse is null", () => {
-      expect(getBillStatusLabel("in_receiving_house", null)).toBe("審議中");
-    });
+  it.each([
+    ["HR", "本会議審議中"],
+    ["HC", "本会議審議中"],
+    [undefined, "本会議審議中"],
+    [null, "本会議審議中"],
+  ] as const)("in_receiving_house (%s) → %s", (house, expected) => {
+    expect(getBillStatusLabel("in_receiving_house", house)).toBe(expected);
   });
 
   it("returns the status string as-is for unknown status", () => {

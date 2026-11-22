@@ -6,7 +6,7 @@ import { chunkArray } from "@/features/interview-reports/shared/utils/chunk-arra
 import type { BillMilestoneSource } from "../../shared/types";
 import { groupByBillId } from "../../shared/utils/group-by-bill-id";
 
-/** 法案の詳細を取るときに、URL が長くなりすぎないよう ID を分けて問い合わせる件数 */
+/** 議案の詳細を取るときに、URL が長くなりすぎないよう ID を分けて問い合わせる件数 */
 const BILL_ID_CHUNK_SIZE = 100;
 
 function throwIfError(error: { message: string } | null, label: string): void {
@@ -14,7 +14,7 @@ function throwIfError(error: { message: string } | null, label: string): void {
 }
 
 /**
- * since 以降に節目（初公開・審議状況の変化・賛否の公開・インタビューの公開）がある法案と、
+ * since 以降に節目（初公開・審議状況の変化・賛否の公開・インタビューの公開）がある議案と、
  * 節目の事実を組み立てるのに使う関連テーブルの値を返す。審議状況の変化は since 以降のものだけ。
  * since は ISO 8601（タイムゾーン付き）
  */

@@ -62,7 +62,7 @@ export function BillSearchOverlay({
     >
       <DialogTrigger className="inline-flex cursor-pointer items-center gap-1 text-[13px] font-bold text-mirai-brand-teal-hover hover:underline">
         <Search className="h-4 w-4" aria-hidden />
-        法案を検索する
+        議案を検索する
         <ChevronRight className="h-4 w-4" aria-hidden />
       </DialogTrigger>
     </BillSearchDialog>
@@ -123,9 +123,9 @@ export function BillSearchDialog({
         showCloseButton={false}
         onCloseAutoFocus={onCloseAutoFocus}
       >
-        <DialogTitle className="sr-only">法案を検索</DialogTitle>
+        <DialogTitle className="sr-only">議案を検索</DialogTitle>
         <DialogDescription className="sr-only">
-          キーワードやテーマから法案を探せます。
+          キーワードやテーマから議案を探せます。
         </DialogDescription>
 
         <div className="flex justify-end px-2 pt-2">
@@ -154,10 +154,10 @@ export function BillSearchDialog({
               autoFocus
               type="search"
               name="q"
-              aria-label="法案を検索"
+              aria-label="議案を検索"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="法案名やキーワードで探す"
+              placeholder="議案名やキーワードで探す"
               className="w-full min-w-0 bg-transparent text-sm outline-none"
             />
             <Button
@@ -177,7 +177,7 @@ export function BillSearchDialog({
             {trimmed && matches.length > 0 && (
               <>
                 <p className="text-xs font-bold text-mirai-text-secondary">
-                  法案 {matches.length}件
+                  議案 {matches.length}件
                 </p>
                 <ul className="flex min-w-0 flex-col">
                   {matches.map((bill) => (

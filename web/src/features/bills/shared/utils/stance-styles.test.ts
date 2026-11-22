@@ -25,13 +25,13 @@ function makeStance(
 }
 
 describe("getStanceStyles", () => {
-  it("isPreparing=true のときスタンスに関わらず法案提出前スタイルを返す", () => {
+  it("isPreparing=true のときスタンスに関わらず議案提出前スタイルを返す", () => {
     const result = getStanceStyles(makeStance("for"), true);
     expect(result).toEqual({
       bg: "bg-white",
       border: "border-mirai-text-muted",
       textColor: "text-mirai-text-muted",
-      label: "法案提出前",
+      label: "議案提出前",
     });
   });
 

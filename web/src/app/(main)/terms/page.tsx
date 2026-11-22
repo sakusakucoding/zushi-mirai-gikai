@@ -11,7 +11,7 @@ import {
 import { routes } from "@/lib/routes";
 
 export const metadata: Metadata = {
-  title: "利用規約 | みらい議会",
+  title: "利用規約 | みらい議会＠逗子市",
   description: "みらい議会の利用規約",
 };
 
@@ -71,7 +71,7 @@ export default function TermsPage() {
                 "サーバへの過剰な負荷、システムへの妨害・侵入・解析（リバースエンジニアリング等）行為。",
                 "自動化ツール、ボット等による不正操作。",
                 "AIモデルの悪用：システムプロンプト等の内部設定の推測、プロンプトインジェクション等による意図的な誤動作の誘発。",
-                "目的外利用：「みらい議会」の趣旨（国会提出法案等の関連テーマ）を著しく逸脱した応答を生成させる行為。",
+                "目的外利用：「みらい議会」の趣旨（逗子市議会に提出された議案等の関連テーマ）を著しく逸脱した応答を生成させる行為。",
                 "なりすまし：他の人物や組織になりすまして本サービスを利用する行為。",
               ]}
             />
@@ -193,7 +193,7 @@ export default function TermsPage() {
         <section className="space-y-4">
           <LegalSectionTitle>第8条（準拠法・管轄）</LegalSectionTitle>
           <LegalParagraph>
-            本規約は日本法に準拠し、本サービスに関連して生じる一切の紛争については、東京地方裁判所を第一審の専属的合意管轄裁判所とします。
+            本規約は日本法に準拠し、本サービスに関連して生じる一切の紛争については、横浜地方裁判所を第一審の専属的合意管轄裁判所とします。
           </LegalParagraph>
         </section>
       </Container>

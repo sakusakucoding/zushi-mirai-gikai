@@ -4,7 +4,6 @@ import {
 } from "@mirai-gikai/shared/bill-proposal-type/labels";
 import { isMiraiStancePublished } from "@mirai-gikai/shared/mirai-stance/publish-schedule";
 import type { OriginatingHouse } from "@/features/bills/shared/types";
-import { HOUSE_LABELS } from "@/features/bills/shared/types";
 import {
   type MiraiStance,
   STANCE_TYPE_LABELS,
@@ -29,17 +28,14 @@ export interface BreakingNewsStep {
   state: BreakingNewsStepState;
 }
 
-/** 提出 → 先議院 → 後議院 → 成立 の4段 */
+/**
+ * 提出 → 委員会 → 本会議 → 議決 の4段。
+ * 逗子市議会は一院制のため、発議院による入れ替えはしない。
+ */
 export function buildBreakingNewsStepLabels(
-  originatingHouse: OriginatingHouse
+  _originatingHouse: OriginatingHouse
 ): string[] {
-  const receivingHouse = originatingHouse === "HR" ? "HC" : "HR";
-  return [
-    "提出",
-    HOUSE_LABELS[originatingHouse],
-    HOUSE_LABELS[receivingHouse],
-    "成立",
-  ];
+  return ["提出", "委員会", "本会議", "議決"];
 }
 
 /** 結果を選んだときの「どこまで進んだか」の初期値(0始まりの段番号) */
@@ -123,7 +119,7 @@ export function suggestBreakingNewsTitleLines(title: string): string {
   return lines.join("\n");
 }
 
-/** 画像に入れるチームみらいの賛否。色はみらい議会の賛否バッジに合わせる */
+/** 画像に入れる運営者の賛否。色はみらい議会の賛否バッジに合わせる */
 export type BreakingNewsStance = {
   label: string;
   tone: "for" | "against" | "other";

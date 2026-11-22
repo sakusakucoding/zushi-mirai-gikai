@@ -4,6 +4,8 @@ import type { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { EXTERNAL_LINKS } from "@/config/external-links";
+import { SITE } from "@/config/site";
 import { isInterviewPage } from "@/lib/page-layout-utils";
 import { routes } from "@/lib/routes";
 import { policyLinks, primaryLinks } from "./footer.config";
@@ -21,6 +23,7 @@ export function Footer() {
         <FooterLogoSection />
         <FooterPrimaryLinks />
         <FooterPolicies />
+        <FooterDisclaimer />
         <FooterCopyright />
       </div>
     </footer>
@@ -30,10 +33,10 @@ export function Footer() {
 function FooterLogoSection() {
   return (
     <div className="flex flex-col items-center text-center mb-9">
-      <Link href={routes.home()} aria-label="みらい議会 トップページ">
+      <Link href={routes.home()} aria-label={`${SITE.NAME} トップページ`}>
         <Image
           src="/img/logo.svg"
-          alt="みらい議会"
+          alt={SITE.NAME}
           width={150}
           height={128}
           className="h-auto"
@@ -91,10 +94,42 @@ function FooterPolicies() {
   );
 }
 
+/**
+ * Fork ガイドラインで必須の免責文言と、ソースコード公開先（AGPL-3.0 第13条）の表示
+ */
+function FooterDisclaimer() {
+  return (
+    <div className="mb-5 flex flex-col items-center gap-1 text-[12px] text-slate-800">
+      <p className="font-semibold">{SITE.DISCLAIMER}</p>
+      <p>
+        本サービスは
+        <a
+          href={EXTERNAL_LINKS.ORIGINAL_REPO}
+          target="_blank"
+          rel="noreferrer"
+          className="underline"
+        >
+          みらい議会（team-mirai/mirai-gikai）
+        </a>
+        をもとに改変したものです（
+        <a
+          href={EXTERNAL_LINKS.GITHUB_REPO}
+          target="_blank"
+          rel="noreferrer"
+          className="underline"
+        >
+          ソースコード
+        </a>
+        ）
+      </p>
+    </div>
+  );
+}
+
 function FooterCopyright() {
   return (
     <div className="text-center text-sm font-medium text-slate-800">
-      © 2025 Team Mirai All rights Reserved
+      {SITE.COPYRIGHT}
     </div>
   );
 }

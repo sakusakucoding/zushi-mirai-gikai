@@ -9,7 +9,7 @@ const baseRow: OpenDataOpenInterviewRow = {
   created_at: "2026-10-01T00:00:00+00:00",
   bills: {
     id: "123e4567-e89b-12d3-a456-426614174000",
-    name: "テスト法案",
+    name: "テスト議案",
     thumbnail_url: "https://example.com/thumb.png",
     bill_contents: [{ title: "わかりやすいタイトル", summary: "概要" }],
   },
@@ -21,7 +21,7 @@ describe("toOpenDataOpenInterviewItem", () => {
       toOpenDataOpenInterviewItem(baseRow, "https://gikai.example.com")
     ).toEqual({
       billId: "123e4567-e89b-12d3-a456-426614174000",
-      billName: "テスト法案",
+      billName: "テスト議案",
       title: "わかりやすいタイトル",
       summary: "概要",
       thumbnailUrl: "https://example.com/thumb.png",

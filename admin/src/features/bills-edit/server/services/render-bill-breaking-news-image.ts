@@ -36,7 +36,7 @@ export type RenderBillBreakingNewsImageResult =
     };
 
 /**
- * 法案の速報画像（PNG）を作る。admin 画面の画像 API と MCP の両方から呼ぶ。
+ * 議案の速報画像（PNG）を作る。admin 画面の画像 API と MCP の両方から呼ぶ。
  * 描画そのものに失敗した場合は例外を投げる
  */
 export async function renderBillBreakingNewsImage(

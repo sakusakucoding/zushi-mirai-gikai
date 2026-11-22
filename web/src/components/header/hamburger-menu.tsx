@@ -135,7 +135,7 @@ export function HamburgerMenu() {
               className="-mx-2 h-auto justify-start gap-2 px-2 py-1.5 text-sm font-medium"
             >
               <Search className="h-4 w-4" aria-hidden />
-              法案を検索
+              議案を検索
             </Button>
             <RubyToggle />
           </div>

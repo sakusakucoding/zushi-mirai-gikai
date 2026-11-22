@@ -1,4 +1,31 @@
-# みらい議会
+# みらい議会＠逗子市
+
+逗子市議会で今どんな議案が検討されているか、わかりやすく伝えるプラットフォームです。
+
+> [!IMPORTANT]
+> これは政党チームみらいが運営しているものではありません。
+> 本リポジトリは [team-mirai/mirai-gikai](https://github.com/team-mirai/mirai-gikai)（AGPL-3.0）を fork し、逗子市議会向けに改変したものです。
+
+## 本家からの主な変更点（2026年11月）
+
+- サービス名を「みらい議会＠逗子市」に変更（`web/src/config/site.ts` に集約）
+- ロゴ・OGP画像・PWAアイコン・トップ画像を独自のものに差し替え
+- テーマカラーを緑系から青系（`#1f78b4`）に変更
+- フッター等に免責文言・本家へのリンク・本リポジトリ（ソースコード公開先）へのリンクを追加
+- 「国会」「法案」「衆議院／参議院」の表記を「逗子市議会」「議案」「委員会審査／本会議」に変更
+  - DB スキーマは本家と同じまま。`bill_status_enum` の `in_originating_house` を「委員会審査中」、`in_receiving_house` を「本会議審議中」、`enacted` を「可決」として表示
+  - `house_enum` は `HR`（逗子市議会）のみ使用、`HC` は未使用
+  - 議案の種類 `cabinet` / `member` を「市長提出」／「議員提出」として表示
+  - 「国会会期（diet_sessions）」は「会期（定例会・臨時会）」として使用（URL は `/kokkai/...` のまま）
+- AI チャットのシステムプロンプトを逗子市議会向けに変更
+- 「チームみらいの賛否」を「運営者の賛否」に変更
+- 運営者が決めるべき項目の一覧は [ZUSHI_SETUP.md](./ZUSHI_SETUP.md) を参照
+
+---
+
+以下は本家の README です。
+
+## 開発者向け（本家 README）
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/team-mirai-volunteer/mirai-gikai)
 [![codecov](https://codecov.io/gh/team-mirai/mirai-gikai/branch/develop/graph/badge.svg)](https://codecov.io/gh/team-mirai/mirai-gikai)

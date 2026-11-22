@@ -43,7 +43,7 @@ describe("latestTimestamp", () => {
 });
 
 describe("buildBillMilestoneFact", () => {
-  it("法案の基本情報と URL を返す", () => {
+  it("議案の基本情報と URL を返す", () => {
     const fact = buildBillMilestoneFact(baseSource, { now, webUrl });
     expect(fact).toMatchObject({
       billId: "bill-1",

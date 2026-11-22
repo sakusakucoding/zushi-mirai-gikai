@@ -4,7 +4,7 @@ type Tables = Database["public"]["Tables"];
 type BillRow = Tables["bills"]["Row"];
 type BillStatusChangeRow = Tables["bill_status_changes"]["Row"];
 
-/** 節目の事実を組み立てるのに使う、法案と関連テーブルの値 */
+/** 節目の事実を組み立てるのに使う、議案と関連テーブルの値 */
 export type BillMilestoneSource = Pick<
   BillRow,
   | "id"

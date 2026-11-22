@@ -22,7 +22,7 @@ const bills = [
   {
     id: "bill-school",
     name: "学校給食法の一部を改正する法律案",
-    bill_content: { title: "給食を無償にする法案" },
+    bill_content: { title: "給食を無償にする議案" },
     tags: [{ id: "kurashi", label: "暮らし" }],
   },
 ];
@@ -58,7 +58,7 @@ describe("HamburgerMenu", () => {
     await openMenu();
 
     expect(
-      screen.getByRole("button", { name: "法案を検索" })
+      screen.getByRole("button", { name: "議案を検索" })
     ).toBeInTheDocument();
     expect(
       screen.getByRole("switch", { name: "ふりがな表示の切り替え" })
@@ -68,10 +68,10 @@ describe("HamburgerMenu", () => {
   it("検索を選ぶとメニューを閉じて検索モーダルを開く", async () => {
     const { user } = await openMenu();
 
-    await user.click(screen.getByRole("button", { name: "法案を検索" }));
+    await user.click(screen.getByRole("button", { name: "議案を検索" }));
 
     expect(await screen.findByRole("dialog")).toHaveAccessibleDescription(
-      "キーワードやテーマから法案を探せます。"
+      "キーワードやテーマから議案を探せます。"
     );
     expect(screen.getByRole("link", { name: /暮らし/ })).toBeInTheDocument();
     await waitFor(() => {
@@ -85,7 +85,7 @@ describe("HamburgerMenu", () => {
   it("モーダルを閉じるとメニューのボタンへフォーカスを戻す", async () => {
     const { user } = await openMenu();
 
-    await user.click(screen.getByRole("button", { name: "法案を検索" }));
+    await user.click(screen.getByRole("button", { name: "議案を検索" }));
     await user.click(await screen.findByRole("button", { name: "閉じる" }));
 
     await waitFor(() => {
@@ -101,7 +101,7 @@ describe("HamburgerMenu", () => {
     loadMock.mockRejectedValue(new Error("network"));
     const { user } = await openMenu();
 
-    await user.click(screen.getByRole("button", { name: "法案を検索" }));
+    await user.click(screen.getByRole("button", { name: "議案を検索" }));
 
     await waitFor(() => {
       expect(pushMock).toHaveBeenCalledWith("/bills");
@@ -113,7 +113,7 @@ describe("HamburgerMenu", () => {
     loadMock.mockRejectedValueOnce(new Error("network"));
     const { user } = await openMenu();
 
-    await user.click(screen.getByRole("button", { name: "法案を検索" }));
+    await user.click(screen.getByRole("button", { name: "議案を検索" }));
 
     expect(await screen.findByRole("dialog")).toBeInTheDocument();
     expect(loadMock).toHaveBeenCalledTimes(2);
@@ -124,7 +124,7 @@ describe("HamburgerMenu", () => {
     const resolveLoad = deferredLoad();
     const { user } = await openMenu();
 
-    await user.click(screen.getByRole("button", { name: "法案を検索" }));
+    await user.click(screen.getByRole("button", { name: "議案を検索" }));
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
 
     resolveLoad();
@@ -138,7 +138,7 @@ describe("HamburgerMenu", () => {
     const resolveLoad = deferredLoad();
     const { user, view } = await openMenu();
 
-    await user.click(screen.getByRole("button", { name: "法案を検索" }));
+    await user.click(screen.getByRole("button", { name: "議案を検索" }));
     usePathnameMock.mockReturnValue("/bills/bill-school");
     view.rerender(<HamburgerMenu />);
     resolveLoad();

@@ -32,12 +32,12 @@ describe("MiraiStanceCard", () => {
   });
 
   // 提出前に賛否を登録した後でステータスを戻した場合など。賛否の中身はまだ出さない。
-  it("法案提出前は賛否の代わりに提出前の案内を出す", () => {
+  it("議案提出前は賛否の代わりに提出前の案内を出す", () => {
     render(<MiraiStanceCard stance={stance} billStatus="preparing" />);
 
-    expect(screen.getByText("法案提出前")).toBeInTheDocument();
+    expect(screen.getByText("議案提出前")).toBeInTheDocument();
     expect(
-      screen.getByText("法案提出後、党内で検討のうえ賛否を表明します。")
+      screen.getByText("議案提出後、検討のうえ賛否を表明します。")
     ).toBeInTheDocument();
     expect(screen.queryByText("賛成")).not.toBeInTheDocument();
     expect(screen.queryByText("賛成の理由")).not.toBeInTheDocument();
@@ -53,7 +53,7 @@ describe("MiraiStanceCard", () => {
     expect(screen.getByText("関連動画")).toBeInTheDocument();
   });
 
-  it("法案提出前は関連する内容も出さない", () => {
+  it("議案提出前は関連する内容も出さない", () => {
     render(
       <MiraiStanceCard stance={stance} billStatus="preparing">
         <p>関連動画</p>

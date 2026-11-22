@@ -41,15 +41,15 @@ const MUTED_COLOR = "#6B7280";
 const TODO_COLOR = "#D2D2D2";
 const TODO_LABEL_COLOR = "#B0B0B0";
 // 成立・可決はティール、否決・廃案は濃いグレー。赤は党の賛否の印象が出るので使わない
-const POSITIVE_COLOR = "#0F8472";
-const GRADIENT = "linear-gradient(90deg, #64D8C6, #BCECD3)";
-const FOOTER_TEXT = "法案の中身は、みらい議会でやさしく解説しています";
+const POSITIVE_COLOR = "#0D5A8C";
+const GRADIENT = "linear-gradient(90deg, #7CC4EA, #D3ECF7)";
+const FOOTER_TEXT = "議案の中身は、みらい議会でやさしく解説しています";
 // みらい議会の賛否バッジ(web の stance-styles.ts と globals.css)と同じ色
 const STANCE_COLORS: Record<
   BreakingNewsStance["tone"],
   { bg: string; text: string }
 > = {
-  for: { bg: "#ECFCF1", text: "#0F8472" },
+  for: { bg: "#ECFCF1", text: "#0D5A8C" },
   against: { bg: "#FFF1F1", text: "#C9272A" },
   other: { bg: "#E5E5EA", text: TEXT_COLOR },
 };
@@ -349,7 +349,7 @@ export async function renderBreakingNewsImage(params: {
           }}
         >
           <div style={{ display: "flex", fontSize: 40, fontWeight: BOLD }}>
-            チームみらいの賛否
+            運営者の賛否
           </div>
           <div
             style={{
@@ -388,7 +388,7 @@ export async function renderBreakingNewsImage(params: {
 
       {/* biome-ignore lint/performance/noImgElement: Satori は img のみ対応 */}
       <img
-        alt="チームみらいロゴ"
+        alt="サービスロゴ"
         src={assets.logo}
         width={logoBox.width}
         height={logoBox.height}

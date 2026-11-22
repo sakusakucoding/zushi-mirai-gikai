@@ -18,21 +18,19 @@ type InterviewMessageInsert =
 type InterviewReportInsert =
   Database["public"]["Tables"]["interview_report"]["Insert"];
 
-// 国会会期データ
+// 会期データ（開発用サンプル。実在の会期ではありません）
 export const dietSessions: DietSessionInsert[] = [
   {
-    name: "第219回国会（臨時会）",
-    slug: "219-rinji",
-    shugiin_url:
-      "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/menu.htm",
+    name: "令和7年第4回定例会（サンプル）",
+    slug: "2025-4-teirei",
+    shugiin_url: null,
     start_date: "2025-10-21",
     end_date: "2025-12-17",
   },
   {
-    name: "第218回国会（臨時会）",
-    slug: "218-rinji",
-    shugiin_url:
-      "https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/menu.htm",
+    name: "令和7年第3回定例会（サンプル）",
+    slug: "2025-3-teirei",
+    shugiin_url: null,
     start_date: "2025-08-01",
     end_date: "2025-08-05",
   },

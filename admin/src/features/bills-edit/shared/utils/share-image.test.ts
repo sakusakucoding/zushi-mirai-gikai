@@ -24,7 +24,7 @@ describe("splitShareImageTitle", () => {
 
 describe("estimateLineWidthInEm", () => {
   it("全角を1、半角を0.65とし、1文字ごとに字間0.03を足す", () => {
-    expect(estimateLineWidthInEm("法案")).toBeCloseTo(2.06);
+    expect(estimateLineWidthInEm("議案")).toBeCloseTo(2.06);
     expect(estimateLineWidthInEm("AI画像")).toBeCloseTo(3.42);
   });
 });
@@ -33,14 +33,14 @@ describe("validateShareImageTitle", () => {
   it("3行以内・60文字以内なら行の配列を返す", () => {
     expect(
       validateShareImageTitle(
-        "通信制・定時制高校で\nきちんとした教育が\n行われるようにする法案"
+        "通信制・定時制高校で\nきちんとした教育が\n行われるようにする議案"
       )
     ).toEqual({
       ok: true,
       lines: [
         "通信制・定時制高校で",
         "きちんとした教育が",
-        "行われるようにする法案",
+        "行われるようにする議案",
       ],
     });
   });
@@ -119,18 +119,18 @@ describe("parseShareImageInput", () => {
   it("写真なしでも requirePhoto が false なら通す", () => {
     expect(
       parseShareImageInput({
-        title: "法案",
+        title: "議案",
         photoUrl: null,
         supabaseUrl: SUPABASE_URL,
         requirePhoto: false,
       })
-    ).toEqual({ ok: true, lines: ["法案"], photoUrl: null });
+    ).toEqual({ ok: true, lines: ["議案"], photoUrl: null });
   });
 
   it("requirePhoto が true で写真がなければエラー", () => {
     expect(
       parseShareImageInput({
-        title: "法案",
+        title: "議案",
         photoUrl: null,
         supabaseUrl: SUPABASE_URL,
         requirePhoto: true,
@@ -141,7 +141,7 @@ describe("parseShareImageInput", () => {
   it("許可されない写真 URL はエラー", () => {
     expect(
       parseShareImageInput({
-        title: "法案",
+        title: "議案",
         photoUrl: "http://169.254.169.254/latest/meta-data",
         supabaseUrl: SUPABASE_URL,
         requirePhoto: false,
@@ -174,7 +174,7 @@ describe("buildShareImagePreviewPath", () => {
   });
 
   it("photoUrl がなければクエリに含めない", () => {
-    const path = buildShareImagePreviewPath({ title: "法案", photoUrl: null });
+    const path = buildShareImagePreviewPath({ title: "議案", photoUrl: null });
     expect(new URL(path, "http://localhost").searchParams.has("photoUrl")).toBe(
       false
     );

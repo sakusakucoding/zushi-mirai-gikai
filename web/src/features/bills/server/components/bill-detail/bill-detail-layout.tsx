@@ -67,7 +67,7 @@ export async function BillDetailLayout({
       </BillDetailClient>
 
       <Container>
-        {/* 法案のトピック一覧（AIインタビュー意見の整理） */}
+        {/* 議案のトピック一覧（AIインタビュー意見の整理） */}
         <div className="my-8">
           <BillTopicsPreviewSection
             billId={bill.id}
@@ -82,8 +82,8 @@ export async function BillDetailLayout({
           </div>
         )}
         {/*
-          賛否が未設定・非公開（公開日時前を含む）なら出さない。法案提出前でも、
-          賛否を登録していない段階で「法案提出前」のカードだけを出すことはしない。
+          賛否が未設定・非公開（公開日時前を含む）なら出さない。議案提出前でも、
+          賛否を登録していない段階で「議案提出前」のカードだけを出すことはしない。
         */}
         {bill.mirai_stance && (
           <div className="my-8">

@@ -104,7 +104,7 @@ export async function GET(request: Request) {
             {truncatedSummary}
           </div>
 
-          {/* 法案名 */}
+          {/* 議案名 */}
           <div
             style={{
               display: "flex",
@@ -112,7 +112,7 @@ export async function GET(request: Request) {
               maxHeight: OG_BILL_NAME_MAX_HEIGHT,
               fontSize: 32,
               fontWeight: 800,
-              color: "#0f8472",
+              color: "#0d5a8c",
               lineHeight: 1.5,
               overflow: "hidden",
               wordBreak: "break-all",
@@ -157,7 +157,7 @@ export async function GET(request: Request) {
         {logoDataUrl && (
           // biome-ignore lint/performance/noImgElement: ignore
           <img
-            alt="チームみらいロゴ"
+            alt="みらい議会＠逗子市ロゴ"
             src={logoDataUrl}
             width={189}
             height={160}

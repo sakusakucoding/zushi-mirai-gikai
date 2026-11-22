@@ -22,7 +22,7 @@ describe("buildAdminArticleReportsUrl", () => {
 
 describe("buildArticleReportSlackMessage", () => {
   const base = {
-    billName: "国旗損壊罪法案",
+    billName: "国旗損壊罪議案",
     difficultyLevel: "normal" as const,
     category: "factual_error" as const,
     body: "施行日が違います",
@@ -33,7 +33,7 @@ describe("buildArticleReportSlackMessage", () => {
     expect(buildArticleReportSlackMessage(base)).toBe(
       [
         "AI版記事に誤り報告が届きました",
-        "議案: 国旗損壊罪法案",
+        "議案: 国旗損壊罪議案",
         "難易度: ふつう",
         "種類: 事実と違う",
         `一覧: https://admin.example.com/bills/${billId}/article-reports`,
@@ -78,10 +78,10 @@ describe("buildArticleReportSlackMessage", () => {
   it("Slack の制御記号をエスケープする", () => {
     const message = buildArticleReportSlackMessage({
       ...base,
-      billName: "A&B法案",
+      billName: "A&B議案",
       body: "<!channel> 見て",
     });
-    expect(message).toContain("議案: A&amp;B法案");
+    expect(message).toContain("議案: A&amp;B議案");
     expect(message).toContain("> &lt;!channel&gt; 見て");
   });
 
@@ -96,7 +96,7 @@ describe("buildArticleReportSlackMessage", () => {
       `一覧: https://admin.example.com/bills/${billId}/article-reports`,
     ]);
     expect(lines.filter((line) => line.startsWith("議案:"))).toEqual([
-      "議案: 国旗損壊罪法案",
+      "議案: 国旗損壊罪議案",
     ]);
     expect(lines.slice(-3)).toEqual([
       "> 施行日が違います",

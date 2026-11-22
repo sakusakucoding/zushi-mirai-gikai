@@ -19,18 +19,13 @@ export const primaryLinks: FooterLink[] = [
     href: routes.home(),
   },
   {
-    label: "みらい議会とは",
-    href: EXTERNAL_LINKS.ABOUT_NOTE,
+    label: "逗子市議会（公式）",
+    href: EXTERNAL_LINKS.COUNCIL_OFFICIAL,
     external: true,
   },
   {
-    label: "チームみらいについて",
-    href: EXTERNAL_LINKS.TEAM_MIRAI_ABOUT,
-    external: true,
-  },
-  {
-    label: "寄附で応援する",
-    href: EXTERNAL_LINKS.DONATION,
+    label: "本家「みらい議会」",
+    href: EXTERNAL_LINKS.ORIGINAL_SERVICE,
     external: true,
   },
 ];
@@ -52,5 +47,10 @@ export const policyLinks: FooterPolicyLink[] = [
   {
     label: "開発者向け",
     href: routes.developers(),
+  },
+  {
+    label: "ソースコード",
+    href: EXTERNAL_LINKS.GITHUB_REPO,
+    external: true,
   },
 ];

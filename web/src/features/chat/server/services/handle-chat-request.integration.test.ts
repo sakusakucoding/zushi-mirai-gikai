@@ -1,26 +1,26 @@
-import { describe, it, expect, beforeEach, afterEach } from "vitest";
-import type { LanguageModelUsage, UIMessage } from "ai";
-import type { MockLanguageModelV3 } from "ai/test";
 import {
   adminClient,
   cleanupTestBill,
+  cleanupTestUser,
   createTestBill,
   createTestUser,
-  cleanupTestUser,
   type TestUser,
 } from "@test-utils/utils";
+import type { LanguageModelUsage, UIMessage } from "ai";
+import type { MockLanguageModelV3 } from "ai/test";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { SUGGEST_INTERVIEW_TOOL_NAME } from "@/features/chat/shared/constants";
+import { ChatError, ChatErrorCode } from "@/features/chat/shared/types/errors";
 import {
   createMultiStepStreamMock,
   createStreamMock,
 } from "@/test-utils/mock-language-model";
 import { createMockPromptProvider } from "@/test-utils/mock-prompt-provider";
-import {
-  handleChatRequest,
-  type ChatMessageMetadata,
-} from "./handle-chat-request";
-import { ChatError, ChatErrorCode } from "@/features/chat/shared/types/errors";
-import { SUGGEST_INTERVIEW_TOOL_NAME } from "@/features/chat/shared/constants";
 import { recordChatUsage } from "./cost-tracker";
+import {
+  type ChatMessageMetadata,
+  handleChatRequest,
+} from "./handle-chat-request";
 
 /**
  * Response のボディストリームを全て読み込み、テキストとして返す。
@@ -285,7 +285,7 @@ describe("handleChatRequest 統合テスト", () => {
       const messages = createTestMessages({
         pageContext: {
           type: "home",
-          bills: [{ id: "bill-1", name: "テスト法案" }],
+          bills: [{ id: "bill-1", name: "テスト議案" }],
         },
       });
 

@@ -120,7 +120,7 @@ export function StanceForm({ billId, stance, billStatus }: StanceFormProps) {
     <Card>
       <CardHeader>
         <div className="flex items-center gap-2">
-          <CardTitle>チームみらいのスタンス</CardTitle>
+          <CardTitle>運営者のスタンス</CardTitle>
           {stance && !stance.is_published && (
             <Badge variant="outline">非公開</Badge>
           )}
@@ -137,7 +137,7 @@ export function StanceForm({ billId, stance, billStatus }: StanceFormProps) {
         </div>
         {isPreparing && (
           <p className="text-sm text-muted-foreground">
-            法案提出前のため、スタンス設定は無効化されています。
+            議案提出前のため、スタンス設定は無効化されています。
           </p>
         )}
       </CardHeader>

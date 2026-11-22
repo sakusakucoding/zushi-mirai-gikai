@@ -7,10 +7,11 @@ import {
   LegalParagraph,
   LegalSectionTitle,
 } from "@/components/layouts/legal-page-layout";
+import { SITE } from "@/config/site";
 import { routes } from "@/lib/routes";
 
 export const metadata: Metadata = {
-  title: "プライバシーポリシー | みらい議会",
+  title: "プライバシーポリシー | みらい議会＠逗子市",
   description: "みらい議会のプライバシーポリシー",
 };
 
@@ -20,7 +21,7 @@ export default function PrivacyPage() {
       className="bg-transparent pt-24 md:pt-12"
       title="プライバシーポリシー"
       enLabel="Privacy Policy"
-      description="チームみらい（以下「当組織」といいます）における個人情報の取り扱いについてご説明します。"
+      description={`${SITE.OPERATOR_NAME}（以下「当組織」といいます）における個人情報の取り扱いについてご説明します。`}
     >
       <Container className="space-y-8">
         <p className="text-sm text-mirai-text-muted">
@@ -154,7 +155,7 @@ export default function PrivacyPage() {
           <LegalParagraph>
             個人情報の確認・修正・削除、またはみらい議会AIインタビュー機能の回答公開の停止等のご相談は、下記までご連絡ください。
           </LegalParagraph>
-          <LegalParagraph>support@team-mir.ai</LegalParagraph>
+          <LegalParagraph>{SITE.CONTACT_EMAIL}</LegalParagraph>
         </section>
       </Container>
     </LegalPageLayout>

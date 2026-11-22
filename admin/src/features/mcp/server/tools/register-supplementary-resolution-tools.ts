@@ -32,7 +32,7 @@ export function registerSupplementaryResolutionTools(server: McpServer): void {
     {
       title: "附帯決議を取得",
       description:
-        "指定議案に付された附帯決議と、それに対するチームみらいの賛否を院ごとに返す。resolutions は登録済みの院の分だけ（衆議院→参議院の順、未設定なら空配列）。house は附帯決議を付した院（HR=衆議院 / HC=参議院）、referenceUrl は附帯決議の内容を確認できる参考リンク、content は附帯決議の内容（自由記述）、stance は for（賛成）/ against（反対）、referenceUrl・content・focusPoints・reason は未設定なら null。",
+        "指定議案に付された附帯決議と、それに対する運営者の賛否を院ごとに返す。resolutions は登録済みの院の分だけ（衆議院→参議院の順、未設定なら空配列）。house は附帯決議を付した院（HR=衆議院 / HC=参議院）、referenceUrl は附帯決議の内容を確認できる参考リンク、content は附帯決議の内容（自由記述）、stance は for（賛成）/ against（反対）、referenceUrl・content・focusPoints・reason は未設定なら null。",
       inputSchema: {
         billId: z.string().uuid(),
       },

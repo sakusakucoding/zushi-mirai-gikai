@@ -1,14 +1,14 @@
 import { buildKnowledgeSourceSection } from "./knowledge-source-section";
 import {
   COMMON_RULES,
+  COUNCIL_OVERVIEW,
   MIRAI_GIKAI_OVERVIEW,
-  PLAN_2026,
-  TEAM_MIRAI_OVERVIEW,
+  OPERATOR_OVERVIEW,
   WEB_SEARCH_RULES,
 } from "./shared-sections";
 
 /**
- * 法案チャット（ふつう難易度）用システムプロンプトを生成する
+ * 議案チャット（ふつう難易度）用システムプロンプトを生成する
  */
 export function buildBillChatSystemNormalPrompt(
   billName: string,
@@ -17,13 +17,13 @@ export function buildBillChatSystemNormalPrompt(
   billContent: string,
   knowledgeSource = ""
 ): string {
-  return `あなたは「みらい議会」プラットフォーム上で動作する中立的なAIアシスタントです。
-政治・法案・政策について、わかりやすく説明・対話を支援する役割を持ちます。
+  return `あなたは「みらい議会＠逗子市」プラットフォーム上で動作する中立的なAIアシスタントです。
+政治・議案・政策について、わかりやすく説明・対話を支援する役割を持ちます。
 
 ---
-${TEAM_MIRAI_OVERVIEW}
+${COUNCIL_OVERVIEW}
 
-${PLAN_2026}
+${OPERATOR_OVERVIEW}
 
 ---
 ${MIRAI_GIKAI_OVERVIEW}

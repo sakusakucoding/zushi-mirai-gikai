@@ -180,7 +180,7 @@ export function BreakingNewsImageGenerator({
               id="breaking-news-place"
               value={place}
               onChange={(event) => setPlace(event.target.value)}
-              placeholder="衆議院 本会議"
+              placeholder="逗子市議会 本会議"
             />
           </div>
         </div>
@@ -208,7 +208,7 @@ export function BreakingNewsImageGenerator({
           />
           <div className="space-y-1 leading-none">
             <Label htmlFor="breaking-news-stance">
-              チームみらいの賛否を入れる
+              運営者の賛否を入れる
               {publishedStance && `（${publishedStance.label}）`}
             </Label>
             <p className="text-sm text-muted-foreground">

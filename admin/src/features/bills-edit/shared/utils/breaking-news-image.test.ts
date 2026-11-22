@@ -19,7 +19,7 @@ const VALID_PARAMS = {
   reachedStep: "1",
   date: "2026-11-06",
   place: "衆議院 本会議",
-  title: "飲食料品の消費税を2年間1%にし、\n中低所得の働く人に支援金を配る法案",
+  title: "飲食料品の消費税を2年間1%にし、\n中低所得の働く人に支援金を配る議案",
   includeStance: false,
   publishedStance: null,
 };
@@ -27,21 +27,13 @@ const VALID_PARAMS = {
 const NOW = new Date("2026-11-06T09:00:00+09:00");
 
 describe("buildBreakingNewsStepLabels", () => {
-  it("衆議院先議なら 提出→衆議院→参議院→成立", () => {
-    expect(buildBreakingNewsStepLabels("HR")).toEqual([
+  // 逗子市議会は一院制のため、発議院に関係なく同じ4段になる
+  it.each(["HR", "HC"] as const)("%s でも 提出→委員会→本会議→議決", (house) => {
+    expect(buildBreakingNewsStepLabels(house)).toEqual([
       "提出",
-      "衆議院",
-      "参議院",
-      "成立",
-    ]);
-  });
-
-  it("参議院先議なら 提出→参議院→衆議院→成立", () => {
-    expect(buildBreakingNewsStepLabels("HC")).toEqual([
-      "提出",
-      "参議院",
-      "衆議院",
-      "成立",
+      "委員会",
+      "本会議",
+      "議決",
     ]);
   });
 });
@@ -115,15 +107,15 @@ describe("suggestBreakingNewsTitleLines", () => {
   it("幅を超える位置より前の読点で折り返す", () => {
     expect(
       suggestBreakingNewsTitleLines(
-        "飲食料品の消費税を2年間1%にし、中低所得の働く人に支援金を配る法案"
+        "飲食料品の消費税を2年間1%にし、中低所得の働く人に支援金を配る議案"
       )
     ).toBe(
-      "飲食料品の消費税を2年間1%にし、\n中低所得の働く人に支援金を配る法案"
+      "飲食料品の消費税を2年間1%にし、\n中低所得の働く人に支援金を配る議案"
     );
   });
 
   it("短いタイトルはそのまま", () => {
-    expect(suggestBreakingNewsTitleLines("  短い法案 ")).toBe("短い法案");
+    expect(suggestBreakingNewsTitleLines("  短い議案 ")).toBe("短い議案");
   });
 
   it("すでに改行があれば手を加えない", () => {
@@ -140,26 +132,26 @@ describe("parseBreakingNewsImageInput", () => {
       result: "可決",
       steps: [
         { label: "提出", state: "done" },
-        { label: "衆議院", state: "done" },
-        { label: "参議院", state: "todo" },
-        { label: "成立", state: "todo" },
+        { label: "委員会", state: "done" },
+        { label: "本会議", state: "todo" },
+        { label: "議決", state: "todo" },
       ],
-      proposalTypeLabel: "閣法",
+      proposalTypeLabel: "市長提出",
       meta: "2026年11月6日｜衆議院 本会議",
       titleLines: [
         "飲食料品の消費税を2年間1%にし、",
-        "中低所得の働く人に支援金を配る法案",
+        "中低所得の働く人に支援金を配る議案",
       ],
       stance: null,
     });
   });
 
-  it("議員立法なら種類のラベルを議員立法にする", () => {
+  it("議員提出なら種類のラベルを議員提出にする", () => {
     const parsed = parseBreakingNewsImageInput({
       ...VALID_PARAMS,
       proposalType: "member",
     });
-    expect(parsed.ok && parsed.proposalTypeLabel).toBe("議員立法");
+    expect(parsed.ok && parsed.proposalTypeLabel).toBe("議員提出");
   });
 
   it("種類が未設定なら種類のラベルを null にする", () => {
