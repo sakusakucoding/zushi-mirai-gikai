@@ -11,7 +11,7 @@ export default function LoginPage() {
             管理者ログイン
           </CardTitle>
           <p className="text-sm text-muted-foreground text-center">
-            みらい議会 Admin
+            みらい議会＠逗子市 Admin
           </p>
         </CardHeader>
         <CardContent>
