@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Route } from "next";
 import Link from "next/link";
 import { Container } from "@/components/layouts/container";
 import {
@@ -158,7 +158,7 @@ export default function PrivacyPage() {
           <LegalParagraph>
             本サイト下部の
             <Link
-              href={`${routes.home()}#${CONTACT_ANCHOR}`}
+              href={`${routes.home()}#${CONTACT_ANCHOR}` as Route}
               className="underline"
             >
               お問い合わせフォーム

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Route } from "next";
 import Link from "next/link";
 import { Container } from "@/components/layouts/container";
 import {
@@ -11,7 +11,7 @@ import { CONTACT_ANCHOR, SITE } from "@/config/site";
 import { env } from "@/lib/env";
 import { routes } from "@/lib/routes";
 
-const contactHref = `${routes.home()}#${CONTACT_ANCHOR}`;
+const contactHref = `${routes.home()}#${CONTACT_ANCHOR}` as Route;
 
 export const metadata: Metadata = {
   title: "みらい議会AIインタビューデータ利用規約 | みらい議会＠逗子市",
