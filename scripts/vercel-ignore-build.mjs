@@ -24,7 +24,7 @@ function skip(reason) {
 }
 
 if (branch === "main" || branch === "develop") {
-  build(`branch "${branch}" deploys via deploy hook`);
+  build(`branch "${branch}" is a deploy branch`);
 }
 
 if (!branch || !owner || !repo) {

@@ -1,8 +1,11 @@
+# 【みらい議会＠逗子市】本家の本番/staging 向けワークフロー。
+# 逗子版は Supabase プロジェクト（kanko）を他アプリと共有しており、
+# このワークフローの db push / config push を走らせると他アプリの設定やマイグレーション履歴を壊すため、
+# 自動実行を止めて手動実行のみにしている。
 name: Migrate DB then Deploy
 
 on:
-  push:
-    branches: [ main, develop ]
+  workflow_dispatch:
 
 jobs:
   migrate-and-deploy:

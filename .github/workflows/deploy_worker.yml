@@ -1,17 +1,11 @@
+# 【みらい議会＠逗子市】本家の Cloud Run（トピック分析ワーカー）向けデプロイ。
+# 逗子版では Cloud Run を使っていないため、自動実行を止めて手動実行のみにしている。
 name: Deploy Topic Analysis Worker
 
 # worker / topic-analysis-core / その依存パッケージが変わったときだけ
 # イメージをビルドして Artifact Registry に push し、Cloud Run Job を更新する。
 on:
-  push:
-    branches: [main, develop]
-    paths:
-      - "worker/**"
-      - "packages/topic-analysis-core/**"
-      - "packages/shared/**"
-      - "packages/supabase/**"
-      - "pnpm-lock.yaml"
-      - ".github/workflows/deploy_worker.yml"
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
