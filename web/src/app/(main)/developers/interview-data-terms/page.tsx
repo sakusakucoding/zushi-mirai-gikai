@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/layouts/container";
 import {
   LegalList,
@@ -6,7 +7,11 @@ import {
   LegalParagraph,
   LegalSectionTitle,
 } from "@/components/layouts/legal-page-layout";
-import { SITE } from "@/config/site";
+import { CONTACT_ANCHOR, SITE } from "@/config/site";
+import { env } from "@/lib/env";
+import { routes } from "@/lib/routes";
+
+const contactHref = `${routes.home()}#${CONTACT_ANCHOR}`;
 
 export const metadata: Metadata = {
   title: "みらい議会AIインタビューデータ利用規約 | みらい議会＠逗子市",
@@ -92,8 +97,8 @@ export default function InterviewDataTermsPage() {
           <LegalList
             items={[
               "データ出典：「みらい議会＠逗子市 AIインタビュー」",
-              "データ提供元URL：https://gikai.team-mir.ai/",
-              "本規約のURL：https://gikai.team-mir.ai/developers/interview-data-terms",
+              `データ提供元URL：${env.webUrl}/`,
+              `本規約のURL：${env.webUrl}${routes.interviewDataTerms()}`,
               {
                 id: "license",
                 content: (
@@ -155,16 +160,19 @@ export default function InterviewDataTermsPage() {
         <section className="space-y-4">
           <LegalSectionTitle>第10条（準拠法・管轄）</LegalSectionTitle>
           <LegalParagraph>
-            本規約は日本法に準拠し、本データの利用に関連して生じる一切の紛争については、東京地方裁判所を第一審の専属的合意管轄裁判所とします。
+            本規約は日本法に準拠し、本データの利用に関連して生じる一切の紛争については、横浜地方裁判所を第一審の専属的合意管轄裁判所とします。
           </LegalParagraph>
         </section>
 
         <section className="space-y-4">
           <LegalSectionTitle>第11条（お問い合わせ）</LegalSectionTitle>
           <LegalParagraph>
-            本規約および本データに関するお問い合わせは、下記までご連絡ください。
+            本規約および本データに関するお問い合わせは、本サイト下部の
+            <Link href={contactHref} className="underline">
+              お問い合わせフォーム
+            </Link>
+            からご連絡ください。
           </LegalParagraph>
-          <LegalParagraph>support@team-mir.ai</LegalParagraph>
         </section>
       </Container>
     </LegalPageLayout>

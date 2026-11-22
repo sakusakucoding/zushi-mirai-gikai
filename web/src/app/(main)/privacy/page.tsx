@@ -7,7 +7,7 @@ import {
   LegalParagraph,
   LegalSectionTitle,
 } from "@/components/layouts/legal-page-layout";
-import { SITE } from "@/config/site";
+import { CONTACT_ANCHOR, SITE } from "@/config/site";
 import { routes } from "@/lib/routes";
 
 export const metadata: Metadata = {
@@ -157,7 +157,10 @@ export default function PrivacyPage() {
           </LegalParagraph>
           <LegalParagraph>
             本サイト下部の
-            <Link href="/#contact" className="underline">
+            <Link
+              href={`${routes.home()}#${CONTACT_ANCHOR}`}
+              className="underline"
+            >
               お問い合わせフォーム
             </Link>
             からご連絡ください。
