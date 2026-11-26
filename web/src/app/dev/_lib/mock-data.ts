@@ -11,6 +11,7 @@ export const allBillStatuses: BillStatusEnum[] = [
   "in_receiving_house",
   "enacted",
   "rejected",
+  "withdrawn",
 ];
 
 export function createMockBillContent(

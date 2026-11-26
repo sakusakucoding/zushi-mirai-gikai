@@ -103,6 +103,10 @@ describe("calculateProgressWidth", () => {
 });
 
 describe("getCurrentStep", () => {
+  test("withdrawn は提出の段階で止まった扱いで 1", () => {
+    expect(getCurrentStep("withdrawn")).toBe(1);
+  });
+
   test("preparing は 0", () => {
     expect(getCurrentStep("preparing")).toBe(0);
   });

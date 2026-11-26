@@ -1624,6 +1624,7 @@ export type Database = {
         | "enacted"
         | "rejected"
         | "preparing"
+        | "withdrawn"
       bill_video_kind: "stance_decision" | "caucus"
       chat_role_enum: "user" | "system" | "assistant"
       difficulty_level_enum: "normal" | "hard"
@@ -1800,6 +1801,7 @@ export const Constants = {
         "enacted",
         "rejected",
         "preparing",
+        "withdrawn",
       ],
       bill_video_kind: ["stance_decision", "caucus"],
       chat_role_enum: ["user", "system", "assistant"],

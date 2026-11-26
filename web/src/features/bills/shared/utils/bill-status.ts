@@ -11,6 +11,8 @@ export function getCardStatusLabel(status: BillStatusEnum): string {
       return "可決";
     case "rejected":
       return "否決";
+    case "withdrawn":
+      return "撤回";
     default:
       return "議案提出前";
   }
@@ -29,6 +31,8 @@ export function getStatusVariant(
       return "default";
     case "rejected":
       return "dark";
+    case "withdrawn":
+      return "muted";
     default:
       return "muted";
   }

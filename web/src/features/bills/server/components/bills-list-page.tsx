@@ -8,6 +8,7 @@ import {
   type LucideIcon,
   MessageSquare,
   Search,
+  Undo2,
   X,
 } from "lucide-react";
 import type { Route } from "next";
@@ -303,6 +304,7 @@ const STATUS_GROUP_ICONS: Record<BillStatusGroup, LucideIcon> = {
   waiting: Clock,
   enacted: Check,
   rejected: X,
+  withdrawn: Undo2,
 };
 
 /**

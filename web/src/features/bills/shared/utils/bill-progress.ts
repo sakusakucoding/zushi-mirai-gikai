@@ -8,6 +8,8 @@ const STATUS_TO_STEP: Record<BillStatusEnum, number> = {
   in_receiving_house: 3,
   enacted: 4,
   rejected: 4,
+  // 撤回は提出の段階で審議が止まった扱いにする
+  withdrawn: 1,
 } as const;
 
 // プログレス比率

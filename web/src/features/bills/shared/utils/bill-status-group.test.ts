@@ -31,6 +31,12 @@ describe("toBillStatusGroup", () => {
   });
 });
 
+describe("toBillStatusGroup（撤回）", () => {
+  it("撤回は「撤回」グループにする（否決や審議中には含めない）", () => {
+    expect(toBillStatusGroup("withdrawn")).toBe("withdrawn");
+  });
+});
+
 describe("isBillStatusGroup", () => {
   it("既知のグループだけ通す", () => {
     expect(isBillStatusGroup("all")).toBe(true);
@@ -53,14 +59,16 @@ describe("countByStatusGroup", () => {
       bill("preparing"),
       bill("enacted"),
       bill("rejected"),
+      bill("withdrawn"),
     ]);
 
     expect(counts).toEqual({
-      all: 6,
+      all: 7,
       deliberating: 3,
       waiting: 1,
       enacted: 1,
       rejected: 1,
+      withdrawn: 1,
     });
   });
 
@@ -71,6 +79,7 @@ describe("countByStatusGroup", () => {
       waiting: 0,
       enacted: 0,
       rejected: 0,
+      withdrawn: 0,
     });
   });
 });

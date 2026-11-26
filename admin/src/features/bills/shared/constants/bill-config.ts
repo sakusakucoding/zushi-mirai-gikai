@@ -4,6 +4,7 @@ import {
   Clock,
   FileText,
   Settings,
+  Undo2,
   XCircle,
 } from "lucide-react";
 import type { ElementType } from "react";
@@ -38,5 +39,9 @@ export const BILL_STATUS_CONFIG: Record<
   rejected: {
     icon: XCircle,
     color: "text-red-600 bg-red-50",
+  },
+  withdrawn: {
+    icon: Undo2,
+    color: "text-gray-600 bg-gray-100",
   },
 };
