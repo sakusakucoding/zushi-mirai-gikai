@@ -2,8 +2,11 @@ import { describe, expect, it } from "vitest";
 import { shouldAutoCloseInterviewOnBillStatus } from "./should-auto-close-interview";
 
 describe("shouldAutoCloseInterviewOnBillStatus", () => {
-  it("enacted のときは true を返す", () => {
-    expect(shouldAutoCloseInterviewOnBillStatus("enacted")).toBe(true);
+  it.each([
+    ["enacted"],
+    ["withdrawn"],
+  ] as const)("%s のときは true を返す", (status) => {
+    expect(shouldAutoCloseInterviewOnBillStatus(status)).toBe(true);
   });
 
   it.each([

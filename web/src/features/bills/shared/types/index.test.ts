@@ -15,6 +15,10 @@ describe("getBillStatusLabel", () => {
     expect(getBillStatusLabel("enacted")).toBe("可決");
   });
 
+  it("returns '撤回' for withdrawn", () => {
+    expect(getBillStatusLabel("withdrawn")).toBe("撤回");
+  });
+
   it("returns '否決' for rejected", () => {
     expect(getBillStatusLabel("rejected")).toBe("否決");
   });

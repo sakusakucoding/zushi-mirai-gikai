@@ -76,6 +76,7 @@ export const BILL_STATUS_ORDER: Record<BillStatusEnum, number> = {
   in_originating_house: 3,
   introduced: 4,
   preparing: 5,
+  withdrawn: 6,
 };
 
 // House display mapping
@@ -104,6 +105,8 @@ export function getBillStatusLabel(
       return "可決";
     case "rejected":
       return "否決";
+    case "withdrawn":
+      return "撤回";
     default:
       return status; // 未知のステータスはそのまま返す
   }

@@ -7,5 +7,6 @@ import type { BillUpdateInput } from "../types";
 export function shouldAutoCloseInterviewOnBillStatus(
   status: BillUpdateInput["status"]
 ): boolean {
-  return status === "enacted";
+  // 可決・撤回された議案は審議が終わっているため、インタビューを自動で閉じる
+  return status === "enacted" || status === "withdrawn";
 }

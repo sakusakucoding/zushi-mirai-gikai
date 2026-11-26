@@ -3,9 +3,9 @@ import type { BillStatusEnum } from "../types";
 /**
  * 議案一覧のステータス絞り込みで使うグループ。
  *
- * DB の status は6値（preparing / introduced / in_originating_house /
- * in_receiving_house / enacted / rejected）だが、一覧のタブはデザイン上4つに束ねる。
- * 審議の場所（衆・参）は絞り込みの軸としては細かすぎるため、まとめて「審議中」にする。
+ * DB の status は7値（preparing / introduced / in_originating_house /
+ * in_receiving_house / enacted / rejected / withdrawn）だが、一覧のタブは5つに束ねる。
+ * 審議の段階（委員会・本会議）は絞り込みの軸としては細かすぎるため、まとめて「審議中」にする。
  */
 export const BILL_STATUS_GROUPS = [
   "all",
@@ -13,6 +13,7 @@ export const BILL_STATUS_GROUPS = [
   "waiting",
   "enacted",
   "rejected",
+  "withdrawn",
 ] as const;
 
 export type BillStatusGroup = (typeof BILL_STATUS_GROUPS)[number];
@@ -23,6 +24,7 @@ export const BILL_STATUS_GROUP_LABELS: Record<BillStatusGroup, string> = {
   waiting: "審議待ち",
   enacted: "成立",
   rejected: "否決",
+  withdrawn: "撤回",
 };
 
 /**
@@ -46,6 +48,8 @@ export function toBillStatusGroup(
       return "enacted";
     case "rejected":
       return "rejected";
+    case "withdrawn":
+      return "withdrawn";
     default:
       return "waiting";
   }
@@ -69,6 +73,7 @@ export function countByStatusGroup(
     waiting: 0,
     enacted: 0,
     rejected: 0,
+    withdrawn: 0,
   };
   for (const bill of bills) {
     counts[toBillStatusGroup(bill.status)] += 1;

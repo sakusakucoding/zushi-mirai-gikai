@@ -14,6 +14,10 @@ describe("getCardStatusLabel", () => {
     expect(getCardStatusLabel("enacted")).toBe("可決");
   });
 
+  it("withdrawn → 撤回", () => {
+    expect(getCardStatusLabel("withdrawn")).toBe("撤回");
+  });
+
   it("rejected → 否決", () => {
     expect(getCardStatusLabel("rejected")).toBe("否決");
   });
@@ -38,6 +42,10 @@ describe("getStatusVariant", () => {
 
   it("rejected → dark", () => {
     expect(getStatusVariant("rejected")).toBe("dark");
+  });
+
+  it("withdrawn → muted", () => {
+    expect(getStatusVariant("withdrawn")).toBe("muted");
   });
 
   it("preparing → muted", () => {
